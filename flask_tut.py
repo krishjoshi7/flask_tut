@@ -1,36 +1,27 @@
-#importing dependencies 
-"""we are using redirect to redirect  the user from a certain page
-to redriect we return rediect followed by the url_for with in it followed by the name of function
-now we wil use render web page by using render_template this allow us to render html page"""
+# Importing dependencies
+from flask import Flask, redirect, url_for, render_template, request
 
-from flask import Flask, redirect,url_for, render_template
+# Initialize the app
+app = Flask(__name__)
 
-#intialise the app
-app =Flask(__name__)
+# Defining function for the home page
+@app.route('/')
+def home():
+    return render_template("index.html")
 
+# Defining function for the login page
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        user = request.form["nm"]
+        return redirect(url_for("user", usr=user))
+    return render_template("login.html")
 
-#defining function for home page
-#falsk does not know where to go and get this page so we give it a route 
-# / is for the path to get the function 
+# Defining function for the user page
+@app.route('/<usr>')
+def user(usr):
+    return f"<h1>{usr}</h1>"
 
-
-
-@app.route('/<name>')
-def home(name):
-    return render_template("index.html", content=name, r="You are doing great")
-
-
-#creating another page 
-@app.route('/<name>')
-def user(name):
-    return f'Hello {name}!'
-
-
-#creating admin page 
-@app.route('/admin')
-def admin():
-    return redirect(url_for("user", name="Admin"))
-
-
-if __name__ =='__main__':
-    app.run()
+# Running the app
+if __name__ == '__main__':
+    app.run(debug=True)

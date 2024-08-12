@@ -1,0 +1,15 @@
+<!-- This is an HTML comment
+The first file in an HTML project is usually named "index.html" 
+You can run Python code in HTML files using Jinja2 syntax in Flask. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+</head>
+<body>
+    <h1>Krish's Website</h1>
+    {% block content %} {% endblock %}
+</body>
+</html>
