@@ -1,0 +1,25 @@
+frontend developement 
+
+html :- hypertext markup language 
+css :- cascading stylesheet
+jayascript
+
+
+frontend:-
+html is a skeletopn of the website (non programming language)
+css is a style of the web page(non programming kanguage)
+javascript is brain of the web page (coding language)
+
+framework:-
+react (highly recomended)
+angular
+vue
+
+vesion control system:-
+git 
+
+backend developement
+DOM :- document object module 
+html is not case sensitive language
+
+
