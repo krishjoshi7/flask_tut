@@ -9,8 +9,11 @@ def create_schema(schema_name):
     schema_exists = cur.fetchall()
 
     if not schema_exists:
-            cur.execute(f'CREATE SCHEMA "{schema_name}";')
-            print(f"Schema '{schema_name}' has been created.")
+        cur.execute(f'CREATE SCHEMA "{schema_name}";')
+        print(f"Schema '{schema_name}' has been created.")
+    else:
+        print(f"Schema '{schema_name}' already exists.")
+
 
 
 create_schema("employee")
